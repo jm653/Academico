@@ -1,0 +1,22 @@
+<h2 class="mt-4 text-center">Cursos</h2>
+
+<table class="table">
+<tr>
+<th>Nome</th>
+<th>Carga Horária</th>
+<th>Duração</th>
+<th>Área</th>
+<th>Instituição</th>
+</tr>
+
+{% for curso in cursos %}
+<tr>
+<td>{{ curso.nome }}</td>
+<td>{{ curso.carga_horaria_total }}</td>
+<td>{{ curso.duracao_meses }}</td>
+<td>{{ curso.area }}</td>
+<td>{{ curso.instituicao }}</td>
+</tr>
+{% endfor %}
+
+</table>

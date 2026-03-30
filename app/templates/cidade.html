@@ -1,0 +1,16 @@
+<h2 class="mt-4 text-center">Cidades</h2>
+
+<table class="table">
+<tr>
+<th>Nome</th>
+<th>UF</th>
+</tr>
+
+{% for cidade in cidades %}
+<tr>
+<td>{{ cidade.nome }}</td>
+<td>{{ cidade.uf }}</td>
+</tr>
+{% endfor %}
+
+</table>

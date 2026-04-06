@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Avaliações</h2>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Pessoa</th>
+            <th>Disciplina</th>
+            <th>Tipo</th>
+            <th>Nota</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for a in avaliacoes %}
+        <tr>
+            <td>{{ a.pessoa.nome }}</td>
+            <td>{{ a.disciplina.nome }}</td>
+            <td>{{ a.tipo.nome }}</td>
+            <td>{{ a.nota }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

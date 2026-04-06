@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Turmas</h2>
+
+<div class="row">
+{% for t in turmas %}
+    <div class="col-md-4">
+        <div class="card mb-3 shadow">
+            <div class="card-body">
+                <h5>{{ t.nome }}</h5>
+                <p><strong>Curso:</strong> {{ t.curso.nome }}</p>
+                <p><strong>Turno:</strong> {{ t.turno.nome }}</p>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <p>Nenhuma turma cadastrada</p>
+{% endfor %}
+</div>
+
+{% endblock %}

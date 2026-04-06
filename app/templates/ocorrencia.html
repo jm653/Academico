@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Ocorrências</h2>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Pessoa</th>
+            <th>Data</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for o in ocorrencias %}
+        <tr>
+            <td>{{ o.pessoa.nome }}</td>
+            <td>{{ o.data }}</td>
+            <td>{{ o.descricao }}</td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="3">Nenhuma ocorrência</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

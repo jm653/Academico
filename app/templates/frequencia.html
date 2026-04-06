@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Frequência</h2>
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Pessoa</th>
+            <th>Disciplina</th>
+            <th>Data</th>
+            <th>Presença</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for f in frequencias %}
+        <tr>
+            <td>{{ f.pessoa.nome }}</td>
+            <td>{{ f.disciplina.nome }}</td>
+            <td>{{ f.data }}</td>
+            <td>
+                {% if f.presenca %}
+                    ✔
+                {% else %}
+                    ❌
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

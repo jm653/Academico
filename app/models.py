@@ -82,3 +82,60 @@ class Matricula(models.Model):
 
     def __str__(self):
         return f"{self.pessoa} - {self.curso}"
+    
+# ------------------ TURNO ------------------
+class Turno(models.Model):
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+
+# ------------------ TURMA ------------------
+class Turma(models.Model):
+    nome = models.CharField(max_length=50)
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    turno = models.ForeignKey(Turno, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.nome} - {self.curso.nome}"
+
+
+# ------------------ TIPO DE AVALIAÇÃO ------------------
+class TipoAvaliacao(models.Model):
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+
+# ------------------ AVALIAÇÃO ------------------
+class Avaliacao(models.Model):
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
+    tipo = models.ForeignKey(TipoAvaliacao, on_delete=models.CASCADE)
+    nota = models.FloatField()
+
+    def __str__(self):
+        return f"{self.pessoa} - {self.nota}"
+
+
+# ------------------ FREQUÊNCIA ------------------
+class Frequencia(models.Model):
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
+    presenca = models.BooleanField()
+    data = models.DateField()
+
+    def __str__(self):
+        return f"{self.pessoa} - {self.data}"
+
+
+# ------------------ OCORRÊNCIA ------------------
+class Ocorrencia(models.Model):
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    descricao = models.TextField()
+    data = models.DateField()
+
+    def __str__(self):
+        return f"{self.pessoa} - {self.data}"

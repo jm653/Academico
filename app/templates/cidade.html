@@ -1,16 +1,15 @@
-<h2 class="mt-4 text-center">Cidades</h2>
+{% extends "base.html" %}
 
-<table class="table">
-<tr>
-<th>Nome</th>
-<th>UF</th>
-</tr>
+{% block title %}Cidades{% endblock %}
 
-{% for cidade in cidades %}
-<tr>
-<td>{{ cidade.nome }}</td>
-<td>{{ cidade.uf }}</td>
-</tr>
+{% block content %}
+<h2>Cidades</h2>
+{% for cid in cidades %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>{{ cid.nome }}</h4>
+        <p>Estado: {{ cid.estado }}</p>
+    </div>
+</div>
 {% endfor %}
-
-</table>
+{% endblock %}

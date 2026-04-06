@@ -1,20 +1,15 @@
-<h2 class="mt-4 text-center">Instituições</h2>
+{% extends "base.html" %}
 
-<table class="table">
-<tr>
-<th>Nome</th>
-<th>Site</th>
-<th>Telefone</th>
-<th>Cidade</th>
-</tr>
+{% block title %}Instituições{% endblock %}
 
-{% for instituicao in instituicoes %}
-<tr>
-<td>{{ instituicao.nome }}</td>
-<td>{{ instituicao.site }}</td>
-<td>{{ instituicao.telefone }}</td>
-<td>{{ instituicao.cidade }}</td>
-</tr>
+{% block content %}
+<h2>Instituições</h2>
+{% for inst in instituicoes %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>{{ inst.nome }}</h4>
+        <p>Cidade: {{ inst.cidade }}</p>
+    </div>
+</div>
 {% endfor %}
-
-</table>
+{% endblock %}

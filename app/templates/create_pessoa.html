@@ -1,7 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Pessoa{% endblock %}
+
+{% block content %}
 <h1>Criar Pessoa</h1>
 
-<form method="post">
+<form method="post" class="mt-4">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Salvar</button>
+    <button type="submit" class="btn btn-success">Salvar</button>
 </form>
+{% endblock %}

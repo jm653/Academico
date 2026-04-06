@@ -1,16 +1,16 @@
-<h2 class="mt-4 text-center">Disciplinas</h2>
+{% extends "base.html" %}
 
-<table class="table">
-<tr>
-<th>Nome</th>
-<th>Área</th>
-</tr>
+{% block title %}Disciplinas{% endblock %}
 
-{% for disciplina in disciplinas %}
-<tr>
-<td>{{ disciplina.nome }}</td>
-<td>{{ disciplina.area }}</td>
-</tr>
+{% block content %}
+<h2>Disciplinas</h2>
+{% for d in disciplinas %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>{{ d.nome }}</h4>
+        <p>Curso: {{ d.curso.nome }}</p>
+        <p>Instituição: {{ d.curso.instituicao.nome }}</p>
+    </div>
+</div>
 {% endfor %}
-
-</table>
+{% endblock %}

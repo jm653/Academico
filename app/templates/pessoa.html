@@ -1,20 +1,25 @@
-<h2 class="mt-4 text-center">Pessoas</h2>
+{% extends "base.html" %}
 
-<table class="table">
-<tr>
-<th>Nome</th>
-<th>Email</th>
-<th>CPF</th>
-<th>Cidade</th>
-</tr>
+{% block title %}Pessoas{% endblock %}
 
-{% for pessoa in pessoas %}
-<tr>
-<td>{{ pessoa.nome }}</td>
-<td>{{ pessoa.email }}</td>
-<td>{{ pessoa.cpf }}</td>
-<td>{{ pessoa.cidade }}</td>
-</tr>
+{% block content %}
+<h2>Pessoas</h2>
+{% for p in pessoas %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h4>{{ p.nome }}</h4>
+        <p>Cidade: {{ p.cidade }}</p>
+        <p>Ocupação: {{ p.ocupacao }}</p>
+
+        <h5>Cursos:</h5>
+        <ul>
+            {% for m in p.matricula_set.all %}
+                <li>{{ m.curso.nome }} ({{ m.instituicao.nome }})</li>
+            {% empty %}
+                <li>Sem matrícula</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endfor %}
-
-</table>
+{% endblock %}

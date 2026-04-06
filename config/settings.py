@@ -71,7 +71,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
 
-# ARQUIVOS ESTÁTICOS
+# ARQUIVOS s
 STATIC_URL = '/static/'
 
 # PADRÃO DE ID

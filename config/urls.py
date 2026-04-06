@@ -11,4 +11,5 @@ urlpatterns = [
     path('disciplina/', DisciplinaView.as_view(), name='disciplina'),
     path('instituicao/', InstituicaoView.as_view(), name='instituicao'),
     path('cidade/', CidadeView.as_view(), name='cidade'),
+    path('pessoa/create/', CreatePessoaView.as_view(), name='create_pessoa'),
 ]

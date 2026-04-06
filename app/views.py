@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import *
+from .forms import PessoaForm
+
 
 class IndexView(View):
     def get(self, request):
@@ -35,3 +37,16 @@ class CidadeView(View):
     def get(self, request):
         cidades = Cidade.objects.all()
         return render(request, 'cidade.html', {'cidades': cidades})
+
+
+class CreatePessoaView(View):
+    def get(self, request):
+        form = PessoaForm()
+        return render(request, 'create_pessoa.html', {'form': form})
+
+    def post(self, request):
+        form = PessoaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('pessoa')
+        return render(request, 'create_pessoa.html', {'form': form})

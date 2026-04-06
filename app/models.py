@@ -82,4 +82,3 @@ class Matricula(models.Model):
 
     def __str__(self):
         return f"{self.pessoa} - {self.curso}"
-curso = models.ForeignKey(Curso, on_delete=models.CASCADE)

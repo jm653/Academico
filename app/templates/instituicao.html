@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block title %}Instituições{% endblock %}
@@ -13,3 +14,25 @@
 </div>
 {% endfor %}
 {% endblock %}
+=======
+<h2 class="mt-4 text-center">Instituições</h2>
+
+<table class="table">
+<tr>
+<th>Nome</th>
+<th>Site</th>
+<th>Telefone</th>
+<th>Cidade</th>
+</tr>
+
+{% for instituicao in instituicoes %}
+<tr>
+<td>{{ instituicao.nome }}</td>
+<td>{{ instituicao.site }}</td>
+<td>{{ instituicao.telefone }}</td>
+<td>{{ instituicao.cidade }}</td>
+</tr>
+{% endfor %}
+
+</table>
+>>>>>>> b18044f0d2a3166db9b5f3215273d72d158c0a7e

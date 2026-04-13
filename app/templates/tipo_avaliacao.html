@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Tipos de Avaliação</h2>
+
+<ul>
+{% for t in tipos %}
+    <li>{{ t.nome }}</li>
+{% empty %}
+    <li>Nenhum tipo cadastrado</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

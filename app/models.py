@@ -50,6 +50,10 @@ class AreaSaber(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = "Área do Saber"
+        verbose_name_plural = "Áreas do Saber"
+
 
 # ------------------ CURSO ------------------
 class Curso(models.Model):
@@ -119,6 +123,9 @@ class Avaliacao(models.Model):
     def __str__(self):
         return f"{self.pessoa} - {self.nota}"
 
+    class Meta:
+        verbose_name = "Avaliação"
+        verbose_name_plural = "Avaliações"
 
 # ------------------ FREQUÊNCIA ------------------
 class Frequencia(models.Model):

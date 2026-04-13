@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Ocupações</h2>
+
+<ul>
+    {% for o in ocupacoes %}
+        <li>{{ o.nome }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -39,4 +39,10 @@ urlpatterns = [
 
     # OCORRÊNCIA
     path('ocorrencia/', OcorrenciaView.as_view(), name='ocorrencia'),
+
+    path('pessoa/update/<int:id>/', UpdatePessoaView.as_view(), name='update_pessoa'),
+    path('pessoa/delete/<int:id>/', DeletePessoaView.as_view(), name='delete_pessoa'),
+    path('area-saber/', AreaSaberView.as_view(), name='area_saber'),
+    path('matricula/', MatriculaView.as_view(), name='matricula'),
+    path('ocupacao/', OcupacaoView.as_view(), name='ocupacao'),
 ]

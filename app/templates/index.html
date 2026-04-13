@@ -1,36 +1,39 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>Início</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+{% block content %}
 
-<body>
+<h2 class="text-center mb-4">Dashboard</h2>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-<a class="navbar-brand" href="/">Sistema Acadêmico</a>
+<div class="row">
+    {% for pessoa in pessoas %}
+    <div class="col-md-4 mb-3">
+        <div class="card shadow">
+            <div class="card-body">
 
-<div class="collapse navbar-collapse">
-<ul class="navbar-nav">
+                <h5>{{ pessoa.nome }}</h5>
 
-<li class="nav-item"><a class="nav-link text-dark" href="/">Home</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/pessoa/">Pessoa</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/curso/">Curso</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/disciplina/">Disciplina</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/instituicao/">Instituição</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/cidade/">Cidade</a></li>
-<li class="nav-item"><a class="nav-link text-dark" href="/admin/">Admin</a></li>
+                <p>
+                    <strong>Email:</strong> {{ pessoa.email }} <br>
+                    <strong>Cidade:</strong> {{ pessoa.cidade }} <br>
+                    <strong>Ocupação:</strong> {{ pessoa.ocupacao }} <br>
+                    <strong>CPF:</strong> {{ pessoa.cpf }} <br>
+                    <strong>Nascimento:</strong> {{ pessoa.data_nasc }}
+                </p>
 
+                <a href="/pessoa/update/{{ pessoa.id }}/" class="btn btn-warning btn-sm">
+                    Editar
+                </a>
 
-</ul>
+                <a href="/pessoa/delete/{{ pessoa.id }}/" 
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Tem certeza que deseja excluir?')">
+                    Excluir
+                </a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-</nav>
 
-<div class="container mt-5 text-center">
-<h1>Bem-vindo ao Sistema Acadêmico</h1>
-<p>Use o menu para navegar no site</p>
-</div>
-
-</body>
+{% endblock %}

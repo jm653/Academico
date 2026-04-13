@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Matrículas</h2>
+
+<ul>
+    {% for m in matriculas %}
+        <li>{{ m.pessoa }} - {{ m.curso }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
